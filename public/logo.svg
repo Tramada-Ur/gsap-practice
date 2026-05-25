@@ -1,0 +1,16 @@
+<svg width="60" height="45" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(60, 45)">
+    <path d="M-38 -30 Q-19 -35 0 -30 L0 34 Q-19 29 -38 34 Z" fill="#4D96FF" opacity="0.9"/>
+    <path d="M0 -30 Q19 -35 38 -30 L38 34 Q19 29 0 34 Z" fill="#FF6B6B" opacity="0.9"/>
+    <rect x="-6" y="-44" width="12" height="8" rx="2" fill="#FF6B6B"/>
+    <rect x="-6" y="-36" width="12" height="54" rx="2" fill="#FFD93D"/>
+    <polygon points="-6,18 6,18 0,32" fill="#E8A020"/>
+    <polygon points="-2,24 2,24 0,32" fill="#1A1A2E" opacity="0.7"/>
+    <g transform="translate(54, -48)">
+      <path d="M0 -18 C-9 -18 -13 -11 -13 -4 C-13 1 -10 5 -7 8 L-5 13 L5 13 L7 8 C10 5 13 1 13 -4 C13 -11 9 -18 0 -18 Z" fill="#FFD93D" opacity="0.95"/>
+      <rect x="-5" y="13" width="10" height="3" rx="1" fill="#E8A020"/>
+      <rect x="-4" y="17" width="8" height="3" rx="1" fill="#E8A020"/>
+      <path d="M0 -13 C3 -9 4 -3 0 0 C-4 -3 -3 -9 0 -13 Z" fill="#6BCB77"/>
+    </g>
+  </g>
+</svg>
