@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Syne:wght@700;800&display=swap');
+
+@import 'tailwindcss';
+
+
+@theme {
+
+  /* --- Typography --- */
+  --font-display: 'Syne', sans-serif;
+  /* headings / hero text */
+  --font-body: 'Nunito', sans-serif;
+  /* body copy, UI text   */
+
+  /* --- ✏️ Brand colors (light mode) --- */
+  --color-primary: #FF6B6B;
+  /* main CTA, highlights      */
+  --color-primary-hover: #FF4F4F;
+  /* hover state               */
+  --color-accent: #FFD93D;
+  /* pops, badges, underlines  */
+  --color-secondary: #6BCB77;
+  /* secondary actions         */
+  --color-tertiary: #4D96FF;
+  /* links, tertiary accents   */
+
+  /* --- Surfaces & text (light mode) --- */
+  --color-bg: #FFFBF0;
+  /* page background           */
+  --color-surface: #FFFFFF;
+  /* cards, modals             */
+  --color-surface-alt: #FFF3D6;
+  /* subtle section bg         */
+  --color-border: #F0E4C8;
+  /* borders, dividers         */
+  --color-text: #1A1A2E;
+  /* primary text              */
+  --color-text-muted: #6B6B8A;
+  /* secondary / muted text    */
+
+  /* --- Radius --- */
+  --radius-sm: 0.375rem;
+  /* 6px  — small elements     */
+  --radius-md: 0.75rem;
+  /* 12px — buttons, inputs    */
+  --radius-lg: 1.25rem;
+  /* 20px — cards              */
+  --radius-xl: 2rem;
+  /* 32px — hero sections      */
+  --radius-full: 9999px;
+  /* pills, badges             */
+
+  /* --- Spacing scale (add your own if needed) --- */
+  --spacing-section: 6rem;
+  /* vertical section padding  */
+
+  /* --- Shadows --- */
+  --shadow-card: 0 4px 24px rgba(26, 26, 46, 0.08);
+  --shadow-pop: 0 8px 40px rgba(255, 107, 107, 0.18);
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #12101E;
+    --color-surface: #1E1B30;
+    --color-surface-alt: #252240;
+    --color-border: #2E2B44;
+    --color-text: #F0EEF8;
+    --color-text-muted: #9896B0;
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* Manual dark mode toggle support — add class="dark" to <html> */
+.dark {
+  --color-bg: #12101E;
+  --color-surface: #1E1B30;
+  --color-surface-alt: #252240;
+  --color-border: #2E2B44;
+  --color-text: #F0EEF8;
+  --color-text-muted: #9896B0;
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  letter-spacing: -0.02em;
+  max-width: 18ch;
+  /* keeps long titles from stretching too wide */
+}
+
+a {
+  color: var(--color-tertiary);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* ============================================================
+  CUSTOM UTILITIES — add your own reusable classes here
+   ============================================================ */
+
+@utility flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@utility section-padding {
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+}
+
+@utility container-base {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* --- Cards --- */
+@utility card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 2rem;
+}
+
+/* --- Buttons --- */
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-primary);
+  color: '#fff';
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-pop);
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-2px);
+  }
+}
+
+
+
+@utility btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-border);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+
+  &:hover {
+    background: var(--color-primary);
+    background: var(--color-surface-alt);
+  }
+}
+
+/* --- Badge / pill --- */
+@utility badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--color-accent);
+  color: #1A1A2E;
+  fontweight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-full);
+}
+
+/* --- Highlighted text underline --- */
+@utility highlight {
+  position: relative;
+  display: inline;
+  background-image: linear-gradient(to right, var(--color-accent), var(--color-accent));
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 100% 0.35em;
+}
+
+
+/* ============================================================
+    COMPONENT SNIPPETS — uncomment & adapt what you need
+   ============================================================ */
+
+/* --- Navbar --- */
+/* .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+} */
+
+/* --- Hero section --- */
+/* .hero {
+  text-align: center;
+  padding: 6rem 1.5rem;
+  background: var(--color-bg);
+} */
+
+/* --- Feature grid --- */
+/* .feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+} */
+
+/* --- Footer --- */
+/* .footer {
+  border-top: 1px solid var(--color-border);
+  padding: 3rem 1.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+} */
